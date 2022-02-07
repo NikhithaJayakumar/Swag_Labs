@@ -45,7 +45,12 @@ public class DriverLaunch {
 			System.setProperty("webdriver.gecko.driver", "D:\\Softwares\\Selenium\\geckodriver.exe");
 			driver = new FirefoxDriver();
 
+			FileInputStream inputStream = new FileInputStream(
+					"E:\\Selenium projects\\Swag_Labs\\src\\test\\resources\\Properties\\testdata.properties");
+			prop.load(inputStream);
+ 
 			driver.get(prop.getProperty("url"));
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			driver.manage().window().maximize();
 			
 		}
